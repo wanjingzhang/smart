@@ -22,8 +22,7 @@ var romanToInt = function (s) {
     sum = 0,
     value = 0;
   for (let i = 0; i < len; i++) {
-    value = symbolValues.get(s[i]);
-    debugger;
+    value = symbolValues.get(s[i]); 
     // 1. 判断是否是最后一个字符
     // 2. 是否小于后面一个数
     if (i < len - 1 && value < symbolValues.get(s[i + 1])) {

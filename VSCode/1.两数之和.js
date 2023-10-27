@@ -7,28 +7,57 @@
  * 
  */
 
+
 // @lc code=start
 /**
+ * 获取数组里相加为target的下标
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
- */
+ */ 
+
+// 暴力
 var twoSum = function (nums, target) {
-  let len = nums.length,
-    maps = new Map();
-  // 如果数组长度小于2，那么返回空
-  if (len < 2) return [];
-  for (let i = 0; i < len; i++) {
-    let num = nums[i];
-    let diff = target - num;
-    // 存在差值，成功返回
-    if (maps.has(diff)) {
-      return [maps.get(diff), i];
-    }
-    // 不存在就插入目前的数
-    maps.set(num, i);
+  let len, maps= new Map(), num=0,diff=0;
+  len = nums.length;
+  // 当前数组必须大于两个元素
+  if(len < 2) return [];
+  // 暴力算法：时间复杂度为O(n2)
+  for(let i=0;i<len-1;i++){
+      for(let j = 1;j<len;j++){
+          if(nums[i] + nums[j] === target){
+              return [i,j];
+          }
+      }
   }
-  return [];
+  return []
 };
 
+// var nums = [3,2,4],target=6;
+// var result = twoSum(nums,target);
+// console.log(result);
+
+
+// 哈希
+// @lc code=start
+var twoSum = function (nums, target) {
+  let len, maps= new Map(), num=0,diff=0;
+  len = nums.length;
+  // 当前数组必须大于两个元素
+  if(len < 2) return [];
+  // 采用哈希算法：把数组映射到Map, 时间复杂度降为O(1)
+  for(let i=0;i<len;i++){
+      num = nums[i];
+      diff = target - num;
+      if(maps.has(diff)){
+          return [maps.get(diff),i]
+      }
+      maps.set(num,i)
+  }
+};  
 // @lc code=end
+
+
+// var nums = [2,7,11,15],target=9;
+// var result = twoSum(nums,target);
+// console.log(result);
