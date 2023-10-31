@@ -9,12 +9,11 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
+var removeElement = function(nums, val) {
     let len = nums.length;
-    let fast=1,slow=1;
-    if(len === 0) return 0;
+    let slow=0,fast=0;
     while(fast < len){
-        if(nums[fast] !== nums[fast-1]){
+        if(nums[fast] !== val){
             nums[slow] = nums[fast];
             ++slow;
         }
@@ -24,4 +23,4 @@ var removeDuplicates = function(nums) {
 };
 // @lc code=end
 
-console.log(removeDuplicates([0,1,1,1,2,2,3,4,5]));
+console.log(removeElement([0,1,1,1,2,2,3,4,5],1));
