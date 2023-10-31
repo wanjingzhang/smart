@@ -10,10 +10,10 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    let len = nums.length;
-    let fast=1,slow=1;
-    if(len === 0) return 0;
-    while(fast < len){
+    const n = nums.length;
+    if(n === 0){return 0;} 
+    let fast = 1,slow = 1;
+    while(fast < n){
         if(nums[fast] !== nums[fast-1]){
             nums[slow] = nums[fast];
             ++slow;
@@ -24,4 +24,7 @@ var removeDuplicates = function(nums) {
 };
 // @lc code=end
 
+
 console.log(removeDuplicates([0,1,1,1,2,2,3,4,5]));
+// 双指针 
+
