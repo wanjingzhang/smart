@@ -1,3 +1,9 @@
+/*
+ * @lc app=leetcode.cn id=28 lang=javascript
+ *
+ * [28] 找出字符串中第一个匹配项的下标
+ */
+
 // @lc code=start
 /**
  * @param {string} haystack
@@ -20,5 +26,9 @@ var strStr = function(haystack, needle) {
 };
 // @lc code=end
 
-let haystack = 'leetcode',needle='leetc';
+let haystack = 'sadbutsad',needle='sad';
 console.log(strStr(haystack,needle))
+
+// 双指针 
+
+
